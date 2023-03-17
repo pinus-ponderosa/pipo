@@ -1,0 +1,23 @@
+--- 
+title: "PIPO Project -- WILD6900"
+author: "Nadav Mouallem"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# About
+
+This digital book written in **Markdown** for Reproducible Data Science (WILD6900). 
+This book outlines elements of my PIPO project, which studies *pinus ponderosa* (Ponderosa pine, PIPO) regeneration
+and plant community composition after high severity reburn wildfires. The content involves the creation of relational
+databases in SQL and data visualization with ggplot2 in R.

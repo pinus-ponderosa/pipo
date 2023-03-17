@@ -1,0 +1,3 @@
+about
+database-design-and-structure
+creating-the-database-structure-in-r
