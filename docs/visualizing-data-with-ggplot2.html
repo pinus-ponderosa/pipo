@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Visualizing Data with ggplot2 | PIPO Project – WILD6900</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Visualizing Data with ggplot2 | PIPO Project – WILD6900" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Visualizing Data with ggplot2 | PIPO Project – WILD6900" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Nadav Mouallem" />
+
+
+<meta name="date" content="2023-04-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="database-design-and-structure.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="database-design-and-structure.html"><a href="database-design-and-structure.html"><i class="fa fa-check"></i><b>2</b> Database Design and Structure</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="database-design-and-structure.html"><a href="database-design-and-structure.html#creating-the-database-structure-in-r"><i class="fa fa-check"></i><b>2.1</b> Creating the Database Structure in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualizing-data-with-ggplot2.html"><a href="visualizing-data-with-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualizing Data with ggplot2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualizing-data-with-ggplot2.html"><a href="visualizing-data-with-ggplot2.html#requisite-packages"><i class="fa fa-check"></i><b>3.1</b> Requisite Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="visualizing-data-with-ggplot2.html"><a href="visualizing-data-with-ggplot2.html#ponderosa-regeneration"><i class="fa fa-check"></i><b>3.2</b> Ponderosa Regeneration</a></li>
+<li class="chapter" data-level="3.3" data-path="visualizing-data-with-ggplot2.html"><a href="visualizing-data-with-ggplot2.html#fuel-load"><i class="fa fa-check"></i><b>3.3</b> Fuel Load</a></li>
+<li class="chapter" data-level="3.4" data-path="visualizing-data-with-ggplot2.html"><a href="visualizing-data-with-ggplot2.html#plant-community"><i class="fa fa-check"></i><b>3.4</b> Plant Community</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PIPO Project – WILD6900</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizing-data-with-ggplot2" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Visualizing Data with ggplot2<a href="visualizing-data-with-ggplot2.html#visualizing-data-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter I will use ggplot2 to visualize the pilot data
+I collected last summer (2022) in a reburn fire north of Flagstaff, AZ.
+I collected my data across different fire severities and reburn combinations.
+I set up plots in reburns of low and high severity patches, as well as areas that burned once at low
+and high severity. The plot types are as follow:</p>
+<ol style="list-style-type: decimal">
+<li>Low severity control (<strong>LSC</strong>): burned once at low severity.</li>
+<li>Low severity reburn (<strong>LSR</strong>): reburn of low severity patch.</li>
+<li>High severity control (<strong>HSC</strong>): burned once at high severity.</li>
+<li>High severity reburn (<strong>HSR</strong>): reburn of high severity patch.</li>
+</ol>
+<p>Additionally, I will create a consistent color scheme where each plot type has the same color
+across my figures using the National Park palette!</p>
+<p>There will be three plot subsections, each visualizing different types of data:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Ponderosa Regeneration</strong> : differences in ponderosa pine regeneration across plot types.</li>
+<li><strong>Fuel Load</strong> : differences in fuel load across plots.</li>
+<li><strong>Plant Community</strong> : differences in plant community composition.</li>
+</ol>
+<p><img src="community.png" /></p>
+<div id="requisite-packages" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Requisite Packages<a href="visualizing-data-with-ggplot2.html#requisite-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following packages were used in R for the plots:</p>
+<pre><code>library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+library(nationalparkcolors)</code></pre>
+<p>The National Park Palette was downloaded from github and used to create a consistent color
+scheme for all plots. The “Mt. Rainier” color palette was used:</p>
+<pre><code>pal &lt;- park_palette(&quot;MtRainier&quot;, 4)</code></pre>
+<p>Here is what the Mt. Rainier palette looks like:
+<img src="NP_color.png" /></p>
+</div>
+<div id="ponderosa-regeneration" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Ponderosa Regeneration<a href="visualizing-data-with-ggplot2.html#ponderosa-regeneration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ponderosa regeneration is quantified as stems per hectare. Height (cm) and diameter at root collar (mm)
+were measured for all ponderosa in plots.</p>
+<p>For the first plot, I looked at the relationship between ponderosa height and diameter across my plots.
+The code and the resulting plot are as follows:</p>
+<pre><code>PIPO_scatter &lt;- regen2 %&gt;%
+  mutate(burn_type = factor(burn_type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+ggplot(aes(x = seed_diam, y = seed_height, color = burn_type)) +
+  geom_point() +
+  labs(x = &quot;Seed Diameter (mm)&quot;,
+       y = &quot;Seed Height (cm)&quot;,
+       color = &quot;Burn Type&quot;) +
+  scale_color_manual(values=pal) +
+  theme_bw()</code></pre>
+<p><img src="PIPO_scatter.png" /></p>
+<p>The next plot examines the differences in ponderosa mean height across plot types.
+The code and resulting plot are as follows:</p>
+<pre><code>seedheight_plot &lt;- regen2 %&gt;%
+  mutate(burn_type = factor(burn_type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  ggplot(aes(x = burn_type, y = seed_height, color = burn_type)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5) +
+  labs(x = &quot;Reburn Type&quot;, y = &quot;Mean Height (cm)&quot;, title = &quot;Mean Seedling Height (cm)&quot;,
+       color = &quot;Burn Type&quot;) +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(values = pal)</code></pre>
+<p><img src="PIPO_jitter.png" /></p>
+<p>The final plot is a bar plot that examines the differences in ponderosa regeneration
+(in stems per square meter) across plot types. The code and resulting plot are as follows:</p>
+<pre><code>seed_m2 &lt;- sev_sum %&gt;%
+  mutate(burn_type = factor(burn_type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  ggplot(aes(x = burn_type, y = seed_per_m2, fill = burn_type)) +
+  geom_col() +
+  labs(x = &quot;Reburn Type&quot;, y = &quot;Seedlings per square meter&quot;, title = &quot;Ponderosa Regeneration&quot;,
+       fill = &quot;Burn Type&quot;) +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = pal)</code></pre>
+<p><img src="seed_m2.png" /></p>
+</div>
+<div id="fuel-load" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Fuel Load<a href="visualizing-data-with-ggplot2.html#fuel-load" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This next section will be examining differences in fuel load across my plot types. Fuel loads
+were meausured using Browns Transects and quantified in mgha, or metric tons per hectare.</p>
+<p>The raw data was processed with the Rfuels package downloaded from github:
+<a href="https://github.com/danfosterfire/Rfuels.git" class="uri">https://github.com/danfosterfire/Rfuels.git</a></p>
+<p>The first plot is a violin plot with a boxplot overlay. Violin plots are useful because
+they show peaks in the data was well as the distribution of the data. The code and plot are as follows:</p>
+<pre><code>fuel_plot &lt;- pumpkin_fuel_loads %&gt;%
+  mutate(plot_type = factor(plot_type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  ggplot(aes(x = plot_type, y = fuelload_total_Mgha, 
+             color = plot_type)) +
+  geom_violin() + 
+  geom_boxplot(width = 0.05) +
+  labs(x = &quot;Plot Type&quot;, 
+       y = &quot;Fuel Load (mgha)&quot;,
+       title = &quot;Plot Fuel Loads&quot;,
+       color = &quot;Plot Type&quot;) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(values=pal) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="fuel_violin.png" /></p>
+<p>The second plot is a stacked bar plot, where each bar shows the amount of each fuel type.
+The fuel types are: duff, litter, 1hr, 10hr, 100hr, 1000hr (rotten and sound). The data first had to be transformed from
+with the “pivot longer” function. The code and plot are as follows:</p>
+<pre><code>fuel_pivot &lt;- pumpkin_fuel_loads %&gt;%
+  select(c(6:12,17)) %&gt;%
+  mutate(plot_type = factor(plot_type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  pivot_longer(cols = -plot_type, names_to = &quot;fuel_load&quot;, values_to = &quot;load_value&quot;) %&gt;%
+  ggplot(aes(x = plot_type, y = load_value, fill = fuel_load)) +
+  geom_bar(position = &quot;stack&quot;, stat = &quot;identity&quot;) +
+  theme_bw() +
+  scale_fill_brewer(labels = c(&quot;1000 hour rotten&quot;,
+                               &quot;1000 hour sound&quot;,
+                               &quot;100 hour&quot;,
+                               &quot;10 hour&quot;,
+                               &quot;1 hour&quot;,
+                               &quot;Duff&quot;,
+                               &quot;Litter&quot;)) +
+  labs(x = &quot;Plot Type&quot;, y = &quot;Fuel Load (mgha)&quot;, 
+       title = &quot;Plot Fuel Load&quot;, fill = &quot;Fuel Class&quot;) +
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="fuel_stacked.png" /></p>
+</div>
+<div id="plant-community" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Plant Community<a href="visualizing-data-with-ggplot2.html#plant-community" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This last sections examines trends in my plant community data. Plant cover of all species was estimated in each plot.
+In the first plot, I am looking at average percent cover of native bunchgrasses, which are important agents of ecosystem
+stability and health. The code and figure are as follows:</p>
+<pre><code>bunch_box1 &lt;- bunch_anova %&gt;%
+  mutate(type = factor(type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  ggplot(aes(x = type, y = sum, color = type)) +
+  geom_boxplot(alpha = 0.3) +
+    labs(x = &quot;Reburn Type&quot;, y = &quot;Bunchgrass % Cover&quot;, title = &quot;Bunchrass Cover&quot;,
+         color = &quot;Burn Type&quot;) +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(values = pal)</code></pre>
+<p><img src="bunchgrass.png" /></p>
+<p>In the final plot I looked at the average species richness in plots. Species richness is the unique number
+of species present in each plot. The code and figure are as follows:</p>
+<pre><code>rich_box1 &lt;- richness_aov %&gt;%
+  mutate(type = factor(type, levels = c(&quot;LSC&quot;, &quot;LSR&quot;, &quot;HSC&quot;, &quot;HSR&quot;))) %&gt;%
+  ggplot(aes(x = type, y = richness, color = type)) +
+  geom_boxplot() +
+  labs(x = &quot;Reburn Type&quot;, y = &quot;Mean Height (cm)&quot;, title = &quot;Average Species Richness&quot;,
+       color = &quot;Burn Type&quot;) +
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(values = pal)</code></pre>
+<p><img src="richness.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="database-design-and-structure.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-visualizations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
